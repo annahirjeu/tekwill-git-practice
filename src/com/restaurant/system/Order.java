@@ -51,12 +51,13 @@ public class Order {
         return total;
     }
 
+
     @Override
     public String toString() {
-        String log = "Order with products[ ";
+        String log = "Order with code[" + orderId + "] created on [" + orderDate + "] has products[  \n";
         for (Product product : products) {
             log = log.concat(product.toString());
-            log = log.concat(", ");
+            log = log.concat(", \n");
         }
         log = log.concat("];");
         return log;
