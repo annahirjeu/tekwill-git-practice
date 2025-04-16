@@ -1,11 +1,30 @@
 package com.restaurant.system;
 
+import enums.OrderStatus;
+
 import java.util.Date;
 
 public class Order {
     private String orderId;
     private Date orderDate;
     private Product[] products;
+    private OrderStatus status;
+
+    public Order(OrderStatus orderStatus) {
+        this.status = orderStatus;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
 
     public Order(String orderId, Date createdDate, Product[] products) {
         this.orderId = orderId;
