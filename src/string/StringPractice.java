@@ -3,11 +3,13 @@ package string;
 public class StringPractice {
 
     public static void main(String[] args) {
+/*
         UsualClass usualObject = new UsualClass(80);
         System.out.println("Initial object hash - " + usualObject.hashCode());
 
         usualObject.setValue(90);
         System.out.println("Object's hash after changes - " + usualObject.hashCode());
+*/
 
 
         String stringObject = new String("Hello");
