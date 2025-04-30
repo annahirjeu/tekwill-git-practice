@@ -4,6 +4,15 @@ public class Person {
     private String gender;
     private int age;
 
+    public Person() {
+
+    }
+
+    public Person(String gender, int age) {
+        this.gender = gender;
+        this.age = age;
+    }
+
     public String getGender() {
         return gender;
     }
@@ -18,5 +27,13 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "gender='" + gender + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
