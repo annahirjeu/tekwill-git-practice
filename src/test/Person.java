@@ -1,6 +1,6 @@
 package test;
 
-public class Person {
+public class Person implements Comparable {
     private String gender;
     private int age;
 
@@ -35,5 +35,10 @@ public class Person {
                 "gender='" + gender + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

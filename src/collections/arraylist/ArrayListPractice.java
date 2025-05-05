@@ -2,8 +2,9 @@ package collections.arraylist;
 
 import test.Person;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ArrayListPractice {
 
@@ -41,15 +42,16 @@ public class ArrayListPractice {
             System.out.println(listOfStrings.get(i));
         }
 
+
         List<Person> persons = new ArrayList<>();
         persons.add(new Person("M", 25));
-        persons.add(new Person("F", 35));
+        persons.add(new Person("F", 51));
         persons.add(new Person("M", 23));
         persons.add(new Person("F", 24));
-        persons.add(new Person("M", 15));
+        persons.add(new Person("M", 60));
         System.out.println("\n Before changes \n");
 
-        for (Person p : persons) {
+/*        for (Person p : persons) {
             System.out.println(p);
         }
         for (Person person : persons) {
@@ -83,7 +85,51 @@ public class ArrayListPractice {
 
         for (Person p : persons) {
             System.out.println(p);
-        }
+        }*/
+        System.out.println("--------------------");
+        System.out.println(persons);
+/*
+        Predicate<Person> personPredicate = (Person p) -> {
+            return p.getGender().equals("M");
+        };
+        persons.removeIf((Person p) -> {
+            return p.getGender().equals("M");
+        });
+
+        persons.removeIf(person -> person.getAge() <50);
+
+        System.out.println("After lambda");
+        System.out.println(persons);
+*/
+
+/*        List<Person> filteredList = persons.stream().filter(person -> person.getAge() > 50).toList();
+        System.out.println(filteredList);
+        System.out.println(persons);*/
+/*
+        Person person = new Person();
+        Person person1 = new Person();
+        person.compareTo(person1);
+        System.out.println(persons);
+
+        Collections.sort(persons, (o1, o2) -> {
+            if (o1.getAge() == o2.getAge()) return 0;
+            return o1.getAge() > o2.getAge() ? 1 : -1;
+        });*/
+
+        List<String> personsInString = Arrays.asList("Ion", "Maria", "Anna", "Alina");
+//        System.out.println(personsInString);
+
+        List<String> sortedPersonsInString = personsInString.stream().sorted().toList();
+//        System.out.println(sortedPersonsInString);
+        List<Person> list = new ArrayList<>();
+        Optional<Integer> sumOfAges = persons.stream().sorted((o1, o2) -> {
+                    if (o1.getAge() == o2.getAge()) return 0;
+                    return o1.getAge() > o2.getAge() ? 1 : -1;
+                }).map(person -> person.getAge())
+                .reduce((personAge, person2Age) -> Integer.sum(personAge, person2Age));
+
+        System.out.println(sumOfAges.get());
+
 
     }
 }
